@@ -1,5 +1,5 @@
-import java.util.Random;
 import java.awt.Color;
+import java.util.Random;
 
 /**
  * Class that represents a turtle which is similar to a Logo turtle.
@@ -54,8 +54,41 @@ public class Turtle extends SimpleTurtle
         // let the parent constructor handle it
         super(p);
     }
-   
     
+    public void drawFace(Color color)
+    {
+        // Assuming the window is at least 600x600
+        // Draw face's circle
+        this.moveFreelyTo(85, 300);
+        this.drawCircle(20);
+        
+        // Set color for face features
+        this.setColor(color);
+        
+        // Draw the eyes
+        this.moveFreelyTo(165, 200);
+        this.turn(90);
+        this.forward(100);
+        
+        this.moveFreelyTo(350, 200);
+        this.forward(100);
+        
+        // Draw the mouth
+        this.moveFreelyTo(175, 325);
+        this.turn(90);
+        this.drawSemiCircle(12, 0.5, Direction.DOWN);
+    }
+    
+    public void drawDesign(Color color1, Color color2)
+    {
+        this.moveFreelyTo(20, 400);
+        this.setColor(color1);
+        this.drawCircleSpiral(20, 10);
+        
+        this.moveFreelyTo(300, 300);
+        this.setColor(color2);
+        this.drawCircleSpiral(20, 5);
+    }
     
     // Well this draws more of a house
     public void drawShape()
@@ -121,7 +154,7 @@ public class Turtle extends SimpleTurtle
     
     public void drawRectangle(Point topLeft, Point bottomRight)
     {
-        this.penUpAndDownTo(topLeft);
+        this.moveFreelyTo(topLeft);
         this.moveTo(topLeft.getX(), bottomRight.getY());
         this.moveTo(bottomRight);
         this.moveTo(bottomRight.getX(), topLeft.getY());
@@ -130,7 +163,7 @@ public class Turtle extends SimpleTurtle
     
     public void drawTriangle(Point p1, Point p2, Point p3) 
     {
-        this.penUpAndDownTo(p1);
+        this.moveFreelyTo(p1);
         this.moveTo(p1);
         this.moveTo(p2);
         this.moveTo(p3);
@@ -138,7 +171,7 @@ public class Turtle extends SimpleTurtle
     
     public void drawQuad(Point topLeft, Point topRight, Point bottomLeft, Point bottomRight)
     {
-        this.penUpAndDownTo(topLeft);
+        this.moveFreelyTo(topLeft);
         this.moveTo(topRight);
         this.moveTo(bottomRight);
         this.moveTo(bottomLeft);
@@ -200,7 +233,7 @@ public class Turtle extends SimpleTurtle
     
     public void drawLine(Point p1, Point p2)
     {
-        this.penUpAndDownTo(p1);
+        this.moveFreelyTo(p1);
         this.moveTo(p2);
     }    
     
@@ -212,21 +245,55 @@ public class Turtle extends SimpleTurtle
         }
     }
     
+    public enum Direction
+    {
+        UP, DOWN
+    }
+    
+    public void drawSemiCircle(int size, double percentage, Direction direction)
+    {
+        int factor;
+        switch (direction) {
+            case UP:
+                factor = 1;
+                break;
+            case DOWN:
+                factor = -1;
+                break;
+            default:
+                factor = 1;
+                break;
+        }
+                
+        int turn = 5 * factor;
+        int loops = (int)(72 * percentage);
+        
+        for (int i = 0; i < loops; i++) {
+            this.forward(size);
+            this.turn(turn);
+        }
+    }
+    
+    public Point getPosition()
+    {
+        return new Point(this.getXPos(), this.getYPos());
+    }
+    
     public void moveTo(Point p)
     {
         this.moveTo(p.getX(), p.getY());
     }
     
-    public void penUpAndDownTo(int x, int y)
+    public void moveFreelyTo(int x, int y)
     {
         this.penUp();
         this.moveTo(x, y);
         this.penDown();
     }
     
-    public void penUpAndDownTo(Point p)
+    public void moveFreelyTo(Point p)
     {
-        this.penUpAndDownTo(p.getX(), p.getY());
+        this.moveFreelyTo(p.getX(), p.getY());
     }
     
     public void turnNorth()

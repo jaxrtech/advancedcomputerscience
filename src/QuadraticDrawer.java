@@ -56,7 +56,7 @@ public class QuadraticDrawer {
                 break;
             case BACKWARD:
                 // Set time to the ending value
-                double[] roots = getQuadradicRoots(gravity, speed, initial);
+                double[] roots = getQuadraticRoots(gravity, speed, initial);
                 for (double root : roots) {
                     if (root > 0) time = root;
                 }
@@ -66,8 +66,8 @@ public class QuadraticDrawer {
                 break;
         }
 
-        int actualX = 0;
-        int actualY = 0;
+        int actualX;
+        int actualY;
         while (true) {
             double height = 5 * getProjectileMotionHeight(gravity, time, speed, initial);
 
@@ -102,7 +102,7 @@ public class QuadraticDrawer {
 
     private double getProjectileMotionHeight(double gravity, double time, double speed, double height) {
         /* Projectile motion formula: 
-         * f(t) = �gt^2 + st + h
+         * f(t) = gt^2 + st + h
          * f(t) = height
          * g = gravity (-16 is normal)
          * t = time
@@ -114,7 +114,7 @@ public class QuadraticDrawer {
 
     private Point getProjectileMotionVertex(double gravity, double speed, double height) {
         /* Gets the x value of the vertex of the parabola
-         * Quadradic function: y = ax2 + bx + c
+         * Quadratic function: y = ax2 + bx + c
          * Formula: x = -(b/2a)
          */
         double x = -speed / (2 * gravity);
@@ -123,7 +123,7 @@ public class QuadraticDrawer {
         return new Point((int) x, (int) y);
     }
 
-    private double[] getQuadradicRoots(double a, double b, double c) {
+    private double[] getQuadraticRoots(double a, double b, double c) {
         // Quadratic formula
         double plus = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
         double minus = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);

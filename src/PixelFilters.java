@@ -17,8 +17,6 @@ public class PixelFilters {
         };
     }
 
-    ;
-
     public static PixelFilter getGrayscalePixelFilter() {
         return new PixelFilter() {
             @Override
@@ -28,8 +26,6 @@ public class PixelFilters {
             }
         };
     }
-
-    ;
 
     public static PixelFilter getSepiaTonePixelFilter() {
         return new PixelFilter() {
@@ -45,8 +41,6 @@ public class PixelFilters {
             }
         };
     }
-
-    ;
 
     public static AdjustablePixelFilter getBrightnessPixelFilter() {
         return new AdjustablePixelFilter() {
@@ -66,8 +60,6 @@ public class PixelFilters {
             }
         };
     }
-
-    ;
 
     private static void setColor(Pixel p, ColorChannel color, int value) {
         value = limitByte(value);

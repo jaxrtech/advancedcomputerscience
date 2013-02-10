@@ -1,10 +1,8 @@
-public class PictureTest
-{
-    public static void main(String[] args)
-    { 
+public class PictureTest {
+    public static void main(String[] args) {
         String file = "H:/hotel.jpg";
         Picture p = new Picture(file);
-        p.sepia();
+        p.pattern();
         p.show();
     }
 }

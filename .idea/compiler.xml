@@ -3,11 +3,11 @@
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
     <excludeFromCompile>
-      <file url="file://$PROJECT_DIR$/bookClasses/MovieMaker.java" />
-      <file url="file://$PROJECT_DIR$/bookClasses/MoviePlayer.java" />
-      <file url="file://$PROJECT_DIR$/bookClasses/SimpleSound.java" />
-      <file url="file://$PROJECT_DIR$/bookClasses/Playback.java" />
-      <file url="file://$PROJECT_DIR$/bookClasses/MovieTester.java" />
+      <file url="file://$PROJECT_DIR$/src/MovieMaker.java" />
+      <file url="file://$PROJECT_DIR$/src/MoviePlayer.java" />
+      <file url="file://$PROJECT_DIR$/src/SimpleSound.java" />
+      <file url="file://$PROJECT_DIR$/src/Playback.java" />
+      <file url="file://$PROJECT_DIR$/src/MovieTester.java" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>

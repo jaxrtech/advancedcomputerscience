@@ -1,11 +1,10 @@
-public class MovieTester{
- 
-  public static void main(String[] args)
-  {
+public class MovieTester {
 
-    MovieMaker movieMaker = new MovieMaker();
-    String dir = "c:";
-    movieMaker.moveMarksEye(dir);
+    public static void main(String[] args) {
 
-  }
+        MovieMaker movieMaker = new MovieMaker();
+        String dir = "c:";
+        movieMaker.moveMarksEye(dir);
+
+    }
 }  
